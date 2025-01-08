@@ -11541,7 +11541,7 @@ EOF
 
 main() {
     cache_uname
-    get_os | grep -v OS
+    get_os
 
     # Load default config.
     eval "$config"
@@ -11589,4 +11589,4 @@ main() {
     return 0
 }
 
-main "$@"
+main "$@" | grep -v OS
