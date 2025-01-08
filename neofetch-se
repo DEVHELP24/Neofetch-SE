@@ -4,11 +4,11 @@
 # shellcheck disable=2009
 #
 # Neofetch: A command-line system information tool written in bash 3.2+.
-# https://github.com/dylanaraps/neofetch
+# https://github.com/DEVHELP24/Neofetch-SE/get
 #
 # The MIT License (MIT)
 #
-# Copyright (c) 2015-2021 Dylan Araps
+# Copyright (c) 2025 NAZY-OS
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -56,7 +56,7 @@ print_info() {
     info title
     info underline
 
-    #info "OS" distro
+    info "OS" distro
     info "Host" model
     info "Kernel" kernel
     info "Uptime" uptime
@@ -74,8 +74,8 @@ print_info() {
     info "GPU" gpu
     info "Memory" memory
 
-     info "GPU Driver" gpu_driver  # Linux/macOS only
-     info "Disk" disk
+    # info "GPU Driver" gpu_driver  # Linux/macOS only
+    # info "Disk" disk
     # info "Battery" battery
     # info "Font" font
     # info "Song" song
@@ -1016,16 +1016,16 @@ get_distro() {
                 esac
                 distro=$(lsb_release "$lsb_flags")
 
-            elif [[ -f /etc/os-release || \
-                    -f /usr/lib/os-release || \
-                    -f /etc/openwrt_release || \
-                    -f /etc/lsb-release ]]; then
+            #elif [[ -f /etc/os-release || \
+            #        -f /usr/lib/os-release || \
+            #        -f /etc/openwrt_release || \
+            #        -f /etc/lsb-release ]]; then
 
                 # Source the os-release file
-                for file in /etc/lsb-release /usr/lib/os-release \
-                            /etc/os-release  /etc/openwrt_release; do
-                    source "$file" && break
-                done
+             #   for file in /etc/lsb-release /usr/lib/os-release \
+             #               /etc/os-release  /etc/openwrt_release; do
+             #       source "$file" && break
+             #   done
 
                 # Format the distro name.
                 case $distro_shorthand in
@@ -4078,7 +4078,7 @@ print_ascii() {
         lines=
         ascii_len=
         image_source=auto
-        get_distro_ascii
+        #get_distro_ascii
         print_ascii
         return
     }
@@ -5245,7 +5245,7 @@ get_args() {
             # Info
             "--title_fqdn") title_fqdn="$2" ;;
             "--package_managers") package_managers="$2" ;;
-            #"--os_arch") os_arch="$2" ;;
+            "--os_arch") os_arch="$2" ;;
             "--cpu_cores") cpu_cores="$2" ;;
             "--cpu_speed") cpu_speed="$2" ;;
             "--speed_type") speed_type="$2" ;;
@@ -5505,7 +5505,7 @@ get_args() {
 get_simple() {
     while [[ "$1" ]]; do
         [[ "$(type -t "get_$1")" == "function" ]] && {
-            get_distro
+            #get_distro
             stdout
             simple=1
             info "$1" "$1"
@@ -6071,23 +6071,23 @@ EOF
         "ArchStrike"*)
             set_colors 8 6
             read -rd '' ascii_data <<'EOF'
-${c1}                   *   
-                  **.
-                 ****
-                ******
-                *******
-              ** *******
-             **** *******
-            ${c1}****${c2}_____${c1}***${c2}/${c1}*
-           ***${c2}/${c1}*******${c2}//${c1}***
-          **${c2}/${c1}********${c2}///${c1}*${c2}/${c1}**
-         **${c2}/${c1}*******${c2}////${c1}***${c2}/${c1}**
-        **${c2}/${c1}****${c2}//////.,${c1}****${c2}/${c1}**
-       ***${c2}/${c1}*****${c2}/////////${c1}**${c2}/${c1}***
-      ****${c2}/${c1}****    ${c2}/////${c1}***${c2}/${c1}****
-     ******${c2}/${c1}***  ${c2}////   ${c1}**${c2}/${c1}******
-    ********${c2}/${c1}* ${c2}///      ${c1}*${c2}/${c1}********
-  ,******     ${c2}// ______ /    ${c1}******,
+${c1}                   *   
+                  **.
+                 ****
+                ******
+                *******
+              ** *******
+             **** *******
+            ${c1}****${c2}_____${c1}***${c2}/${c1}*
+           ***${c2}/${c1}*******${c2}//${c1}***
+          **${c2}/${c1}********${c2}///${c1}*${c2}/${c1}**
+         **${c2}/${c1}*******${c2}////${c1}***${c2}/${c1}**
+        **${c2}/${c1}****${c2}//////.,${c1}****${c2}/${c1}**
+       ***${c2}/${c1}*****${c2}/////////${c1}**${c2}/${c1}***
+      ****${c2}/${c1}****    ${c2}/////${c1}***${c2}/${c1}****
+     ******${c2}/${c1}***  ${c2}////   ${c1}**${c2}/${c1}******
+    ********${c2}/${c1}* ${c2}///      ${c1}*${c2}/${c1}********
+  ,******     ${c2}// ______ /    ${c1}******,
 EOF
         ;;
 
@@ -11541,7 +11541,7 @@ EOF
 
 main() {
     cache_uname
-    #get_os
+    get_os | grep -v OS
 
     # Load default config.
     eval "$config"
