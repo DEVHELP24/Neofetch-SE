@@ -11592,4 +11592,4 @@ main() {
 echo && echo $(date)
 main "$@" | grep -v OS
 
-echo && uptime && echo
+uptime && echo
