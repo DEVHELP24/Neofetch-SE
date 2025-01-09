@@ -11589,5 +11589,7 @@ main() {
     return 0
 }
 
-echo && echo $(date) && echo && uptime && echo
+echo && echo $(date)
 main "$@" | grep -v OS
+
+echo && uptime && echo
