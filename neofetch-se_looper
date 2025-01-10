@@ -41,7 +41,7 @@ while true; do
     while true; do
 	sleep 900
 	echo "Date and Time: $(date)"
-	bash $script_dir/neofetch-se && exit
+	bash $script_dir/neofetch-se &
     done
 
 done &
