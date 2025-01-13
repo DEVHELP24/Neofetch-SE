@@ -15,12 +15,12 @@ Chooseable COMMANDSs
 
 1. Onetime running
 
-    bash Downloads/neofetch-se & 
+    bash ${srcpath}/Downloads/neofetch-se & 
 __________________________________________________
 
 3. or alternative as loop variant  
 
-    bash Downloads/neofetch-se_looper & 
+    bash ${srcpath}/neofetch-se_looper & 
 __________________________________________________
 
  # HowTo Insert it in every terminal??
