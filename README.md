@@ -15,7 +15,7 @@ Chooseable COMMANDSs
 
 1. Onetime running
 
-    bash ${srcpath}/Downloads/neofetch-se & 
+    bash ${srcpath}/neofetch-se & 
 __________________________________________________
 
 3. or alternative as loop variant  
